@@ -44,9 +44,10 @@ namespace ACT1E_CRUD
 
             }
 
-            try {
+            try
+            {
                 connection.Open();
-                string loginquery = "INSERT INTO userss (username, password, name) VALUES (@username, @password, @name)";
+                string loginquery = "INSERT INTO users (username, password, name) VALUES (@username, @password, @name)";
                 MySqlCommand command = new MySqlCommand(loginquery, connection);
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
@@ -55,7 +56,12 @@ namespace ACT1E_CRUD
                 int rowaffected = command.ExecuteNonQuery();
                 if (rowaffected > 0)
                 {
-                    MessageBox.Show("")
+                    MessageBox.Show("Account Registered");
+
+                }
+                else
+                {
+                    MessageBox.Show("Account Failed to register");
                 }
 
 
@@ -65,18 +71,19 @@ namespace ACT1E_CRUD
 
             catch (Exception ex)
             {
-                MessageBox.Show ("Error: " +  ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
 
 
-            finally { 
-            
-               if (connection.State == System.Data.ConnectionState.Open )
+            finally
+            {
+
+                if (connection.State == System.Data.ConnectionState.Open)
                 {
                     connection
                         .Close();
                 }
-            
+
             }
 
 
@@ -85,6 +92,13 @@ namespace ACT1E_CRUD
         private void register_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            Form1 loginpage = new Form1();
+            loginpage.Show();
+            this.Hide();
         }
     }
 }

@@ -151,6 +151,7 @@
             btnSignIn.TabIndex = 59;
             btnSignIn.Text = "Sign In";
             btnSignIn.UseVisualStyleBackColor = false;
+            btnSignIn.Click += btnSignIn_Click;
             // 
             // btnRegisterAccount
             // 

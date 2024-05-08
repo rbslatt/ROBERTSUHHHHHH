@@ -9,7 +9,7 @@ namespace ACT1E_CRUD
         {
             InitializeComponent();
             // declare variable for connecting string
-            
+
         }
 
         private void chbShowPassword_CheckedChanged(object sender, EventArgs e)
@@ -29,9 +29,9 @@ namespace ACT1E_CRUD
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim(); 
+            string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
-            if(string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace (password))
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("PLEASE ENTER BOTH USERNAME AND PASSWPORD");
 
@@ -43,7 +43,7 @@ namespace ACT1E_CRUD
                 MySqlCommand command = new MySqlCommand(loginquery, connection);
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
-                int count  = Convert.ToInt32(command.ExecuteScalar());
+                int count = Convert.ToInt32(command.ExecuteScalar());
                 if (count > 0)
                 {
                     MessageBox.Show("Successfully log in");
@@ -59,20 +59,32 @@ namespace ACT1E_CRUD
                 }
             }
 
-            catch (Exception ex)  
-            
+            catch (Exception ex)
+
             {
-                MessageBox.Show("Error: " + ex.Message);  
-            }   
+                MessageBox.Show("Error: " + ex.Message);
+            }
 
             finally
-            { 
-                if (connection.State == System.Data.ConnectionState.Open) 
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
                 {
                     connection.Close();
                 }
             }
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LinkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            register registerpage = new register();
+                registerpage.Show();
+            this.Hide();
         }
     }
 }

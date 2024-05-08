@@ -66,6 +66,7 @@
             pictureBox1.Size = new Size(68, 70);
             pictureBox1.TabIndex = 51;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // btnClose
             // 
@@ -94,6 +95,7 @@
             LinkSignUp.TabIndex = 49;
             LinkSignUp.TabStop = true;
             LinkSignUp.Text = "Sign Up";
+            LinkSignUp.LinkClicked += LinkSignUp_LinkClicked;
             // 
             // label4
             // 
